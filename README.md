@@ -1,6 +1,6 @@
-# Site CCS Gesso
+# Site Anselmo Imovéis
 
-Primeira versao do site da loja, feita com HTML, CSS e JavaScript puro.
+Primeira versao do site do Catalogo, feita com HTML, CSS e JavaScript puro.
 
 ## Como abrir no VS Code
 
@@ -26,3 +26,7 @@ const numeroWhatsApp = "5500000000000";
 ```
 
 Use o formato com codigo do pais e DDD, sem espacos, parenteses ou tracos.
+
+Ok
+
+11/05/2026
