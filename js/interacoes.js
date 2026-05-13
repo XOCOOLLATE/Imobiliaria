@@ -8,7 +8,7 @@ const whatsappNumber = "5551995483061";
 
 const properties = [
   {
-    titulo: "Casa ampla em bairro residencial",
+    title: "Casa ampla em bairro residencial",
     tipo: "Casa",
     negocio: "Venda",
     cidade: "Guaíba",
@@ -19,7 +19,7 @@ const properties = [
     valor: "R$ 690.000",
   },
   {
-    titulo: "Apartamento moderno próximo a serviços",
+    title: "Apartamento moderno próximo a serviços",
     tipo: "Apartamento",
     negocio: "Aluguel",
     cidade: "Porto Alegre",
@@ -30,7 +30,7 @@ const properties = [
     valor: "R$ 2.800/mês",
   },
   {
-    titulo: "Terreno com excelente potencial",
+    title: "Terreno com excelente potencial",
     tipo: "Terreno",
     negocio: "Venda",
     cidade: "Guaíba",
@@ -41,7 +41,7 @@ const properties = [
     valor: "R$ 260.000",
   },
   {
-    titulo: "Sala comercial para locação",
+    title: "Sala comercial para locação",
     tipo: "Comercial",
     negocio: "Aluguel",
     cidade: "Porto Alegre",
@@ -51,98 +51,62 @@ const properties = [
     garagem: 0,
     valor: "R$ 1.900/mês",
   },
-  {
-    titulo: "Casa térrea com pátio",
-    tipo: "Casa",
-    negocio: "Venda",
-    cidade: "Guaíba",
-    bairro: "Colina",
-    quartos: 2,
-    banheiros: 1,
-    garagem: 2,
-    valor: "R$ 430.000",
-  },
-  {
-    titulo: "Apartamento compacto para investir",
-    tipo: "Apartamento",
-    negocio: "Venda",
-    cidade: "Porto Alegre",
-    bairro: "Cidade Baixa",
-    quartos: 1,
-    banheiros: 1,
-    garagem: 0,
-    valor: "R$ 310.000",
-  },
 ];
 
-if (menuToggle && navMenu) {
-  menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+/* AQUI EMBAIXO VOCÊ COLOCA O CÓDIGO DA BUSCA */
+
+const formBusca = document.getElementById("formBusca");
+const resultadosImoveis = document.getElementById("resultadosImoveis");
+
+formBusca.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const finalidade = document.getElementById("finalidade").value;
+  const tipoImovel = document.getElementById("tipoImovel").value;
+  const cidadeBairro = document
+    .getElementById("cidadeBairro")
+    .value.toLowerCase()
+    .trim();
+
+  const imoveisFiltrados = properties.filter(function (imovel) {
+    const combinaFinalidade =
+      finalidade === "" || imovel.negocio === finalidade;
+    const combinaTipo = tipoImovel === "" || imovel.tipo === tipoImovel;
+
+    const combinaLocal =
+      cidadeBairro === "" ||
+      imovel.cidade.toLowerCase().includes(cidadeBairro) ||
+      imovel.bairro.toLowerCase().includes(cidadeBairro);
+
+    return combinaFinalidade && combinaTipo && combinaLocal;
   });
-}
 
-function renderProperties(list) {
-  propertyList.innerHTML = "";
+  mostrarImoveis(imoveisFiltrados);
+});
 
-  if (list.length === 0) {
-    propertyList.innerHTML = `
-      <div class="empty-message">
-        <h3>Nenhum imóvel encontrado</h3>
-        <p>Tente alterar os filtros ou entre em contato para receber atendimento personalizado.</p>
-      </div>
+function mostrarImoveis(lista) {
+  resultadosImoveis.innerHTML = "";
+
+  if (lista.length === 0) {
+    resultadosImoveis.innerHTML = `
+      <p>Nenhum imóvel encontrado com esses filtros.</p>
     `;
     return;
   }
 
-  list.forEach((property) => {
-    const card = document.createElement("article");
-    card.classList.add("property-card");
-
-    const detalhes = [];
-
-    if (property.quartos > 0) {
-      detalhes.push(`${property.quartos} quarto(s)`);
-    }
-
-    if (property.banheiros > 0) {
-      detalhes.push(`${property.banheiros} banheiro(s)`);
-    }
-
-    if (property.garagem > 0) {
-      detalhes.push(`${property.garagem} vaga(s)`);
-    }
-
-    detalhes.push(property.tipo);
-
-    const message = encodeURIComponent(
-      `Olá, tenho interesse no imóvel: ${property.titulo}. Poderia me passar mais informações?`,
-    );
-
-    card.innerHTML = `
-      <div class="property-image">
-        <span class="property-badge">${property.negocio}</span>
-      </div>
-
-      <div class="property-content">
-        <h3>${property.titulo}</h3>
-
-        <p class="property-location">
-          ${property.bairro}, ${property.cidade}
-        </p>
-
-        <div class="property-details">
-          ${detalhes.map((item) => `<span>${item}</span>`).join("")}
-        </div>
-
-        <strong class="property-price">${property.valor}</strong>
-
-        <a class="property-link" href="https://wa.me/${whatsappNumber}?text=${message}" target="_blank">
-          Tenho interesse
-        </a>
+  lista.forEach(function (imovel) {
+    resultadosImoveis.innerHTML += `
+      <div class="card-imovel">
+        <h3>${imovel.title}</h3>
+        <p><strong>Tipo:</strong> ${imovel.tipo}</p>
+        <p><strong>Finalidade:</strong> ${imovel.negocio}</p>
+        <p><strong>Local:</strong> ${imovel.bairro}, ${imovel.cidade}</p>
+        <p><strong>Quartos:</strong> ${imovel.quartos}</p>
+        <p><strong>Banheiros:</strong> ${imovel.banheiros}</p>
+        <p><strong>Garagem:</strong> ${imovel.garagem}</p>
+        <p><strong>Valor:</strong> ${imovel.valor}</p>
       </div>
     `;
-
-    propertyList.appendChild(card);
   });
 }
 

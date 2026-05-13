@@ -84,19 +84,36 @@
             </div>
           </div>
 
-          <div class="hero-card">
-            <div class="search-box">
-              <h2>Busque seu imóvel</h2>
+         <div class="search-card">
+  <h2>Busque seu imóvel</h2>
 
-              <form id="filterForm">
-                <div class="form-group">
-                  <label for="tipoNegocio">Finalidade</label>
-                  <select id="tipoNegocio">
-                    <option value="todos">Todos</option>
-                    <option value="Venda">Venda</option>
-                    <option value="Aluguel">Aluguel</option>
-                  </select>
-                </div>
+  <form id="formBusca" class="search-box">
+    <label>Finalidade</label>
+    <select id="finalidade">
+      <option value="">Todas</option>
+      <option value="Venda">Venda</option>
+      <option value="Aluguel">Locação</option>
+    </select>
+
+    <label>Tipo de imóvel</label>
+    <select id="tipoImovel">
+      <option value="">Todos</option>
+      <option value="Casa">Casa</option>
+      <option value="Apartamento">Apartamento</option>
+      <option value="Terreno">Terreno</option>
+      <option value="Comercial">Comercial</option>
+    </select>
+
+    <label>Cidade ou bairro</label>
+    <input
+      id="cidadeBairro"
+      type="text"
+      placeholder="Ex: Guaíba, Porto Alegre"
+    />
+
+    <button type="submit">Pesquisar imóveis</button>
+  </form>
+</div>
 
                 <div class="form-group">
                   <label for="tipoImovel">Tipo de imóvel</label>
@@ -126,6 +143,7 @@
           </div>
         </div>
       </section>
+ 
 
       <section class="section" id="imoveis">
         <div class="container">
@@ -343,5 +361,7 @@
     </a>
 
     <script src="script.js"></script>
-  </body>
+  
 </html>
+<script src="interacoes.js"></script>
+</body>
