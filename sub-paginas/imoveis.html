@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imóveis à venda | Anselmo Pedroso Imóveis</title>
+    <link rel="stylesheet" href="../css/front.css" />
+  </head>
+
+  <body>
+    <header class="topo-site">
+      <a href="../index.html" class="logo-link">
+        <img
+          src="../img/logo.png"
+          alt="Anselmo Pedroso Imóveis"
+          class="logo-site"
+        />
+      </a>
+
+      <nav class="menu-site">
+        <a href="imoveis.html" class="ativo">Imóveis</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <a
+        class="botao-header"
+        href="https://wa.me/5551995483061"
+        target="_blank"
+      >
+        Falar com corretor
+      </a>
+    </header>
+
+    <main class="pagina-imoveis">
+      <section class="hero-imoveis">
+        <p class="etiqueta">Imóveis selecionados em Guaíba</p>
+        <h1>Encontre o imóvel ideal para morar, investir ou empreender</h1>
+        <p>
+          Veja casas, terrenos e imóveis comerciais representados por Anselmo
+          Pedroso, corretor de imóveis, perito avaliador e técnico em
+          edificações.
+        </p>
+      </section>
+
+      <section class="filtros-imoveis">
+        <input
+          type="text"
+          id="buscaImoveis"
+          placeholder="Buscar por bairro, rua ou código"
+        />
+
+        <select id="tipoImovel">
+          <option value="">Todos os tipos</option>
+          <option value="casa">Casa</option>
+          <option value="terreno">Terreno</option>
+          <option value="comercial">Comercial</option>
+        </select>
+      </section>
+
+      <section id="listaImoveis" class="grid-imoveis"></section>
+    </main>
+
+    <script src="../js/imoveis-dados.js"></script>
+    <script src="../js/imoveis-lista.js"></script>
+  </body>
+</html>
