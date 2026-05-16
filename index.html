@@ -6,10 +6,13 @@
 
     <title>Anselmo Pedroso Imobiliária</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
 
@@ -28,17 +31,32 @@
         </button>
 
         <nav class="nav" id="navMenu">
-          <a href="sub-paginas/imoveis.html">Imóveis</a>
-          <a href="sub-paginas/servicos.html">Serviços</a>
-          <a href="sub-paginas/sobre.html">Sobre</a>
-          <a href="sub-paginas/contato.html">Contato</a>
-        </nav>
+          <a href="sub-paginas/imoveis.html">
+            <i class="ri-home-4-line"></i>
+            Imóveis
+          </a>
 
+          <a href="sub-paginas/servicos.html">
+            <i class="ri-briefcase-4-line"></i>
+            Serviços
+          </a>
+
+          <a href="sub-paginas/sobre.html">
+            <i class="ri-user-3-line"></i>
+            Sobre
+          </a>
+
+          <a href="sub-paginas/contato.html">
+            <i class="ri-phone-line"></i>
+            Contato
+          </a>
+        </nav>
         <a
           class="btn-header"
           href="https://wa.me/5551995483061"
           target="_blank"
         >
+          <i class="ri-whatsapp-line"></i>
           Falar com corretor
         </a>
       </div>
@@ -46,76 +64,12 @@
 
     <main>
       <section class="hero hero-com-banner" id="inicio">
-        <div class="container hero-grid-banner">
-          <div class="hero-banner-area">
-            <span class="tagline"
-              >Venda, locação, avaliações e financiamento</span
-            >
-
-            <img
-              src="img/banner-anselmo.png"
-              alt="Banner Anselmo Pedroso Imóveis"
-              class="banner-principal"
-            />
-
-            <p class="texto-apoio-banner">
-              Atendimento especializado para compra, venda, locação e avaliação
-              de imóveis em Guaíba, Porto Alegre e região.
-            </p>
-
-            <div class="hero-actions">
-              <a href="sub-paginas/imoveis.html" class="btn-primary">
-                Ver imóveis disponíveis
-              </a>
-
-              <a
-                href="https://wa.me/5551995483061"
-                target="_blank"
-                class="btn-secondary"
-              >
-                Falar com corretor
-              </a>
-            </div>
-          </div>
-
-          <div class="search-card">
-            <h2>Busque seu imóvel</h2>
-
-            <form id="formBusca" class="search-box">
-              <div class="form-group">
-                <label for="finalidade">Finalidade</label>
-                <select id="finalidade">
-                  <option value="">Todas</option>
-                  <option value="Venda">Venda</option>
-                  <option value="Aluguel">Locação</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="tipoImovel">Tipo de imóvel</label>
-                <select id="tipoImovel">
-                  <option value="">Todos</option>
-                  <option value="Casa">Casa</option>
-                  <option value="Apartamento">Apartamento</option>
-                  <option value="Terreno">Terreno</option>
-                  <option value="Comercial">Comercial</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="cidadeBairro">Cidade ou bairro</label>
-                <input
-                  id="cidadeBairro"
-                  type="text"
-                  placeholder="Ex: Guaíba, Porto Alegre"
-                />
-              </div>
-
-              <button type="submit" class="btn-primary full">
-                Pesquisar imóveis
-              </button>
-            </form>
-          </div>
+        <div class="container">
+          <img
+            src="img/banner-anselmo.png"
+            alt="Banner Anselmo Pedroso Imóveis"
+            class="banner-principal banner-principal-grande"
+          />
         </div>
       </section>
 

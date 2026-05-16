@@ -1,7 +1,6 @@
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 const propertyList = document.getElementById("propertyList");
-const filterForm = document.getElementById("filterForm");
 const contactForm = document.getElementById("contactForm");
 
 const whatsappNumber = "5551995483061";
@@ -53,108 +52,73 @@ const properties = [
   },
 ];
 
-/* AQUI EMBAIXO VOCÊ COLOCA O CÓDIGO DA BUSCA */
-
-const formBusca = document.getElementById("formBusca");
-const resultadosImoveis = document.getElementById("resultadosImoveis");
-
-formBusca.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const finalidade = document.getElementById("finalidade").value;
-  const tipoImovel = document.getElementById("tipoImovel").value;
-  const cidadeBairro = document
-    .getElementById("cidadeBairro")
-    .value.toLowerCase()
-    .trim();
-
-  const imoveisFiltrados = properties.filter(function (imovel) {
-    const combinaFinalidade =
-      finalidade === "" || imovel.negocio === finalidade;
-    const combinaTipo = tipoImovel === "" || imovel.tipo === tipoImovel;
-
-    const combinaLocal =
-      cidadeBairro === "" ||
-      imovel.cidade.toLowerCase().includes(cidadeBairro) ||
-      imovel.bairro.toLowerCase().includes(cidadeBairro);
-
-    return combinaFinalidade && combinaTipo && combinaLocal;
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
   });
+}
 
-  mostrarImoveis(imoveisFiltrados);
-});
+function renderProperties(lista) {
+  if (!propertyList) return;
 
-function mostrarImoveis(lista) {
-  resultadosImoveis.innerHTML = "";
+  propertyList.innerHTML = "";
 
-  if (lista.length === 0) {
-    resultadosImoveis.innerHTML = `
-      <p>Nenhum imóvel encontrado com esses filtros.</p>
-    `;
-    return;
-  }
+  lista.forEach((property) => {
+    propertyList.innerHTML += `
+      <article class="property-card">
+        <div class="property-image">
+          <span class="property-badge">${property.negocio}</span>
+        </div>
 
-  lista.forEach(function (imovel) {
-    resultadosImoveis.innerHTML += `
-      <div class="card-imovel">
-        <h3>${imovel.title}</h3>
-        <p><strong>Tipo:</strong> ${imovel.tipo}</p>
-        <p><strong>Finalidade:</strong> ${imovel.negocio}</p>
-        <p><strong>Local:</strong> ${imovel.bairro}, ${imovel.cidade}</p>
-        <p><strong>Quartos:</strong> ${imovel.quartos}</p>
-        <p><strong>Banheiros:</strong> ${imovel.banheiros}</p>
-        <p><strong>Garagem:</strong> ${imovel.garagem}</p>
-        <p><strong>Valor:</strong> ${imovel.valor}</p>
-      </div>
+        <div class="property-content">
+          <h3>${property.title}</h3>
+
+          <p class="property-location">
+            ${property.bairro}, ${property.cidade}
+          </p>
+
+          <div class="property-details">
+            <span>${property.tipo}</span>
+            <span>${property.quartos} quartos</span>
+            <span>${property.banheiros} banheiros</span>
+            <span>${property.garagem} vagas</span>
+          </div>
+
+          <strong class="property-price">${property.valor}</strong>
+
+          <a
+            class="property-link"
+            href="https://wa.me/${whatsappNumber}"
+            target="_blank"
+          >
+            Falar com corretor
+          </a>
+        </div>
+      </article>
     `;
   });
 }
 
-filterForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (propertyList) {
+  renderProperties(properties);
+}
 
-  const tipoNegocio = document.getElementById("tipoNegocio").value;
-  const tipoImovel = document.getElementById("tipoImovel").value;
-  const cidade = document.getElementById("cidade").value.toLowerCase().trim();
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const filteredProperties = properties.filter((property) => {
-    const matchNegocio =
-      tipoNegocio === "todos" || property.negocio === tipoNegocio;
-    const matchTipo = tipoImovel === "todos" || property.tipo === tipoImovel;
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const interesse = document.getElementById("interesse").value;
+    const mensagem = document.getElementById("mensagem").value;
 
-    const matchCidade =
-      cidade === "" ||
-      property.cidade.toLowerCase().includes(cidade) ||
-      property.bairro.toLowerCase().includes(cidade);
-
-    return matchNegocio && matchTipo && matchCidade;
-  });
-
-  renderProperties(filteredProperties);
-
-  document.getElementById("imoveis").scrollIntoView({
-    behavior: "smooth",
-  });
-});
-
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const telefone = document.getElementById("telefone").value;
-  const interesse = document.getElementById("interesse").value;
-  const mensagem = document.getElementById("mensagem").value;
-
-  const text = encodeURIComponent(
-    `Olá, meu nome é ${nome}.
+    const text = encodeURIComponent(
+      `Olá, meu nome é ${nome}.
 Telefone: ${telefone}
 Tenho interesse em: ${interesse}
 Mensagem: ${mensagem}`,
-  );
+    );
 
-  window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
-});
-
-if (propertyList) {
-  renderProperties(properties);
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+  });
 }
