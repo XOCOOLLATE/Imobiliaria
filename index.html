@@ -45,105 +45,79 @@
     </header>
 
     <main>
-      <section class="hero" id="inicio">
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <span class="tagline">Venda, locação e avaliação de imóveis</span>
+      <section class="hero hero-com-banner" id="inicio">
+        <div class="container hero-grid-banner">
+          <div class="hero-banner-area">
+            <span class="tagline"
+              >Venda, locação, avaliações e financiamento</span
+            >
 
-            <h1>
-              Encontre o imóvel ideal com segurança, estratégia e atendimento
-              personalizado.
-            </h1>
+            <img
+              src="img/banner-anselmo.png"
+              alt="Banner Anselmo Pedroso Imóveis"
+              class="banner-principal"
+            />
 
-            <p>
-              Atendimento especializado para quem deseja comprar, vender, alugar
-              ou avaliar um imóvel com confiança e clareza em cada etapa da
-              negociação.
+            <p class="texto-apoio-banner">
+              Atendimento especializado para compra, venda, locação e avaliação
+              de imóveis em Guaíba, Porto Alegre e região.
             </p>
 
             <div class="hero-actions">
-              <a href="#imoveis" class="btn-primary">Ver imóveis disponíveis</a>
-              <a href="#contato" class="btn-secondary">Solicitar atendimento</a>
-            </div>
+              <a href="sub-paginas/imoveis.html" class="btn-primary">
+                Ver imóveis disponíveis
+              </a>
 
-            <div class="hero-stats">
-              <div>
-                <strong>Venda</strong>
-                <span>Casas, apartamentos e terrenos</span>
-              </div>
-
-              <div>
-                <strong>Locação</strong>
-                <span>Imóveis residenciais e comerciais</span>
-              </div>
-
-              <div>
-                <strong>Avaliação</strong>
-                <span>Perícia e análise técnica</span>
-              </div>
+              <a
+                href="https://wa.me/5551995483061"
+                target="_blank"
+                class="btn-secondary"
+              >
+                Falar com corretor
+              </a>
             </div>
           </div>
 
-         <div class="search-card">
-  <h2>Busque seu imóvel</h2>
+          <div class="search-card">
+            <h2>Busque seu imóvel</h2>
 
-  <form id="formBusca" class="search-box">
-    <label>Finalidade</label>
-    <select id="finalidade">
-      <option value="">Todas</option>
-      <option value="Venda">Venda</option>
-      <option value="Aluguel">Locação</option>
-    </select>
+            <form id="formBusca" class="search-box">
+              <div class="form-group">
+                <label for="finalidade">Finalidade</label>
+                <select id="finalidade">
+                  <option value="">Todas</option>
+                  <option value="Venda">Venda</option>
+                  <option value="Aluguel">Locação</option>
+                </select>
+              </div>
 
-    <label>Tipo de imóvel</label>
-    <select id="tipoImovel">
-      <option value="">Todos</option>
-      <option value="Casa">Casa</option>
-      <option value="Apartamento">Apartamento</option>
-      <option value="Terreno">Terreno</option>
-      <option value="Comercial">Comercial</option>
-    </select>
+              <div class="form-group">
+                <label for="tipoImovel">Tipo de imóvel</label>
+                <select id="tipoImovel">
+                  <option value="">Todos</option>
+                  <option value="Casa">Casa</option>
+                  <option value="Apartamento">Apartamento</option>
+                  <option value="Terreno">Terreno</option>
+                  <option value="Comercial">Comercial</option>
+                </select>
+              </div>
 
-    <label>Cidade ou bairro</label>
-    <input
-      id="cidadeBairro"
-      type="text"
-      placeholder="Ex: Guaíba, Porto Alegre"
-    />
+              <div class="form-group">
+                <label for="cidadeBairro">Cidade ou bairro</label>
+                <input
+                  id="cidadeBairro"
+                  type="text"
+                  placeholder="Ex: Guaíba, Porto Alegre"
+                />
+              </div>
 
-    <button type="submit">Pesquisar imóveis</button>
-  </form>
-</div>
-
-                <div class="form-group">
-                  <label for="tipoImovel">Tipo de imóvel</label>
-                  <select id="tipoImovel">
-                    <option value="todos">Todos</option>
-                    <option value="Casa">Casa</option>
-                    <option value="Apartamento">Apartamento</option>
-                    <option value="Terreno">Terreno</option>
-                    <option value="Comercial">Comercial</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="cidade">Cidade ou bairro</label>
-                  <input
-                    type="text"
-                    id="cidade"
-                    placeholder="Ex: Guaíba, Porto Alegre"
-                  />
-                </div>
-
-                <button type="submit" class="btn-primary full">
-                  Pesquisar imóveis
-                </button>
-              </form>
-            </div>
+              <button type="submit" class="btn-primary full">
+                Pesquisar imóveis
+              </button>
+            </form>
           </div>
         </div>
       </section>
- 
 
       <section class="section" id="imoveis">
         <div class="container">
@@ -360,8 +334,6 @@
       WhatsApp
     </a>
 
-    <script src="script.js"></script>
-  
+    <script src="interacoes.js"></script>
+  </body>
 </html>
-<script src="interacoes.js"></script>
-</body>

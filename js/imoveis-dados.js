@@ -21,7 +21,9 @@ const IMOVEIS = [
       "Boa opção para quem busca espaço para construir com liberdade de projeto.",
       "Indicado para moradia, investimento ou futura valorização patrimonial.",
     ],
-    fotos: [],
+    fotos: [
+      "https://cdn.gryphtech.com/userimages/61/LargeWM/L_81b71404-c24b-41c0-9143-0a0d0e15117a.jpg",
+    ],
     pagina: "imoveis/terreno-pedras-brancas-jose-carlos.html",
   },
   {
@@ -47,7 +49,10 @@ const IMOVEIS = [
       "O terreno possui 300m², oferecendo possibilidade de ampliação, paisagismo ou melhor aproveitamento externo.",
       "Imóvel indicado para quem busca uma casa acessível, funcional e pronta para morar.",
     ],
-    fotos: [],
+    fotos: [
+      "https://cdn.gryphtech.com/userimages/61/LargeWM/L_b0c41e75-8c8c-4573-9bdd-56ef3c56e9e4.jpg",
+    ],
+
     pagina: "imoveis/casa-bom-fim.html",
   },
   {
@@ -71,9 +76,7 @@ const IMOVEIS = [
       "Boa alternativa para quem deseja construir um imóvel sob medida.",
       "Indicado para investimento, moradia futura ou projeto residencial.",
     ],
-    fotos: [
-      "https://cdn.gryphtech.com/userimages/61/LargeWM/L_b0c41e75-8c8c-4573-9bdd-56ef3c56e9e4.jpg",
-    ],
+    fotos: [],
     pagina: "imoveis/terreno-pedras-brancas-rua-nove.html",
   },
   {

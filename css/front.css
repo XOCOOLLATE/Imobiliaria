@@ -1096,3 +1096,103 @@ textarea:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* HERO COM BANNER PRINCIPAL */
+
+.hero-com-banner {
+  padding: 70px 0 70px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(214, 168, 79, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(135deg, var(--cream), #ffffff);
+}
+
+.hero-grid-banner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-banner-area {
+  max-width: 850px;
+}
+
+.banner-principal {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 26px;
+  border: 1px solid rgba(214, 168, 79, 0.35);
+  box-shadow: 0 22px 50px rgba(11, 34, 53, 0.16);
+  object-fit: cover;
+}
+
+.texto-apoio-banner {
+  margin-top: 22px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 720px;
+}
+
+.search-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(214, 168, 79, 0.22);
+}
+
+.search-card h2 {
+  font-family: "Cinzel", serif;
+  color: var(--navy);
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+
+.search-card .search-box {
+  background: linear-gradient(180deg, #ffffff, #fbf8f0);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.search-card button {
+  margin-top: 8px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 980px) {
+  .hero-grid-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-principal {
+    max-width: 100%;
+  }
+
+  .hero-com-banner {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-com-banner {
+    padding: 36px 0;
+  }
+
+  .banner-principal {
+    border-radius: 18px;
+  }
+
+  .texto-apoio-banner {
+    font-size: 0.98rem;
+  }
+
+  .search-card .search-box {
+    padding: 22px;
+  }
+}
