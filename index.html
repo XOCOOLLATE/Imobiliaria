@@ -23,17 +23,27 @@
       @media (max-width: 980px) {
         .header-content {
           position: relative !important;
-          justify-content: space-between !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
         }
 
         .logo-area {
           position: absolute !important;
           left: 50% !important;
           transform: translateX(-50%) !important;
+          z-index: 2 !important;
         }
 
         .menu-toggle {
-          margin-left: auto !important;
+          position: absolute !important;
+          right: 0 !important;
+          z-index: 3 !important;
+          display: block !important;
+        }
+
+        .btn-header {
+          display: none !important;
         }
       }
     </style>
