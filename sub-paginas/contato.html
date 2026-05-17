@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contato | Anselmo Pedroso Imoveis</title>
+    <title>Contato | Anselmo Pedroso Imobiliária</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -12,155 +12,324 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/front.css?v=2" />
+    <link rel="stylesheet" href="../css/front.css?v=3" />
+
     <style>
-      .contato-hero {
-        padding: 80px 0 70px;
-        background: linear-gradient(135deg, var(--cream), #ffffff);
-        border-bottom: 1px solid var(--border);
+      /* ── HERO ── */
+      .ct-hero {
+        position: relative;
+        padding: 100px 0 80px;
+        background:
+          linear-gradient(rgba(11, 34, 53, 0.54), rgba(11, 34, 53, 0.62)),
+          url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80")
+            center/cover no-repeat;
+        text-align: center;
+        overflow: hidden;
       }
-      .contato-hero h1 {
+      .ct-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at top,
+          rgba(214, 168, 79, 0.18),
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .ct-hero .tagline {
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+      .ct-hero h1 {
         font-family: "Cinzel", serif;
-        color: var(--navy);
-        font-size: clamp(1.8rem, 4vw, 3rem);
+        color: #fff;
+        font-size: clamp(1.9rem, 4.5vw, 3.2rem);
         line-height: 1.1;
         max-width: 780px;
-        margin-bottom: 20px;
+        margin: 0 auto 22px;
       }
-      .contato-hero p {
-        color: var(--muted);
+      .ct-hero p {
+        color: rgba(255, 255, 255, 0.82);
         font-size: 1.05rem;
-        line-height: 1.8;
-        max-width: 640px;
+        max-width: 580px;
+        margin: 0 auto;
+        line-height: 1.75;
       }
-      .contato-cards-section {
-        padding: 90px 0;
-        background: var(--white);
-      }
-      .contato-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 26px;
-        margin-top: 42px;
-      }
-      .contato-card {
-        background: var(--cream);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 34px 30px;
-        transition: 0.3s;
-      }
-      .contato-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 44px rgba(11, 34, 53, 0.09);
-        border-color: var(--gold);
-      }
-      .contato-card-icon {
-        width: 58px;
-        height: 58px;
-        background: var(--navy);
-        border-radius: 16px;
+
+      /* ── SEPARADOR DOURADO ── */
+      .ct-divisor {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
+        gap: 10px;
+        margin: 18px auto 0;
       }
-      .contato-card-icon i {
+      .ct-divisor span {
+        display: block;
+        width: 56px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.7;
+      }
+      .ct-divisor i {
         color: var(--gold);
-        font-size: 1.6rem;
+        font-size: 1rem;
       }
-      .contato-card h3 {
+
+      /* ── CARD WHATSAPP DESTAQUE ── */
+      .ct-wpp-section {
+        padding: 72px 0 0;
+        background: var(--cream);
+      }
+      .ct-wpp-card {
+        background: var(--navy);
+        border-radius: 26px;
+        padding: 40px 44px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        box-shadow: 0 28px 60px rgba(11, 34, 53, 0.22);
+        border: 1px solid rgba(214, 168, 79, 0.22);
+      }
+      .ct-wpp-icone {
+        flex-shrink: 0;
+        width: 88px;
+        height: 88px;
+        background: rgba(37, 211, 102, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(37, 211, 102, 0.35);
+      }
+      .ct-wpp-icone i {
+        font-size: 2.8rem;
+        color: #25d366;
+      }
+      .ct-wpp-texto {
+        flex: 1;
+      }
+      .ct-wpp-texto h3 {
         font-family: "Cinzel", serif;
-        color: var(--navy);
-        font-size: 1.15rem;
-        margin-bottom: 12px;
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 8px;
       }
-      .contato-card p {
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 22px;
+      .ct-wpp-texto p {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.97rem;
+        line-height: 1.6;
       }
-      .contato-card-botoes {
+      .ct-wpp-botoes {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        flex-shrink: 0;
       }
       .btn-wpp {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        min-height: 48px;
-        padding: 0 22px;
+        min-height: 50px;
+        padding: 0 26px;
         border-radius: 999px;
         background: #25d366;
         color: #fff;
-        font-weight: 700;
+        font-weight: 800;
         font-size: 0.95rem;
-        transition: 0.3s;
+        transition: 0.25s;
         text-decoration: none;
+        white-space: nowrap;
+        border: none;
+        cursor: pointer;
       }
       .btn-wpp:hover {
         background: #1ebe5d;
         transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+      }
+
+      /* ── GRID DE CONTATOS (e-mail, redes, área) ── */
+      .ct-cards-section {
+        padding: 56px 0 80px;
+        background: var(--cream);
+      }
+      .ct-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .ct-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 32px 28px;
+        transition: 0.3s;
+      }
+      .ct-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 44px rgba(11, 34, 53, 0.09);
+        border-color: var(--gold);
+      }
+      .ct-card-topo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .ct-card-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--navy);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .ct-card-icon i {
+        color: var(--gold);
+        font-size: 1.5rem;
+      }
+      .ct-card h3 {
+        font-family: "Cinzel", serif;
+        color: var(--navy);
+        font-size: 1.1rem;
+      }
+      .ct-card p {
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.7;
+        margin-bottom: 22px;
+      }
+      .ct-card-botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
       .btn-mail {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        min-height: 48px;
-        padding: 0 22px;
+        min-height: 46px;
+        padding: 0 20px;
         border-radius: 999px;
         background: var(--navy);
         color: #fff;
         font-weight: 700;
-        font-size: 0.95rem;
-        transition: 0.3s;
+        font-size: 0.92rem;
+        transition: 0.25s;
         text-decoration: none;
       }
       .btn-mail:hover {
         background: var(--gold-dark);
         transform: translateY(-2px);
       }
-      .btn-rede {
-        display: inline-flex;
+
+      /* ícones coloridos das redes sociais */
+      .redes-icones {
+        display: flex;
+        gap: 16px;
+        margin-top: 4px;
+        flex-wrap: wrap;
+      }
+      .rede-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: var(--navy);
+        font-size: 0.78rem;
+        font-weight: 700;
+        transition: 0.2s;
+      }
+      .rede-link:hover {
+        transform: translateY(-3px);
+      }
+      .rede-link .rede-ico {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        min-height: 48px;
-        padding: 0 22px;
-        border-radius: 999px;
-        border: 1px solid var(--gold);
-        color: var(--navy);
-        background: transparent;
-        font-weight: 700;
-        font-size: 0.95rem;
-        transition: 0.3s;
-        text-decoration: none;
+        font-size: 1.5rem;
       }
-      .btn-rede:hover {
-        background: var(--navy);
+      .rede-link .rede-ico.instagram {
+        background: radial-gradient(
+          circle at 30% 107%,
+          #fdf497 0%,
+          #fdf497 5%,
+          #fd5949 45%,
+          #d6249f 60%,
+          #285aeb 90%
+        );
         color: #fff;
-        border-color: var(--navy);
-        transform: translateY(-2px);
       }
-      .ajuda-section {
-        padding: 90px 0;
-        background: var(--cream);
+      .rede-link .rede-ico.facebook {
+        background: #1877f2;
+        color: #fff;
       }
-      .ajuda-tags {
+      .rede-link .rede-ico.facebook-page {
+        background: #0866ff;
+        color: #fff;
+      }
+
+      /* mapa RS SVG */
+      .ct-mapa {
+        margin-top: 18px;
+        opacity: 0.55;
+      }
+      .ct-mapa svg {
+        width: 130px;
+        height: auto;
+      }
+
+      /* ── COMO PODEMOS AJUDAR ── */
+      .ct-ajuda-section {
+        padding: 80px 0;
+        background: var(--white);
+        text-align: center;
+      }
+      .ct-ajuda-section .section-heading {
+        margin: 0 auto 36px;
+      }
+      .ct-ajuda-section .section-heading h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      }
+      .ct-divisor-dourado {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 12px 0 36px;
+      }
+      .ct-divisor-dourado span {
+        display: block;
+        width: 44px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.7;
+      }
+      .ct-divisor-dourado i {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .ct-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-top: 32px;
+        justify-content: center;
       }
-      .ajuda-tag {
+      .ct-tag {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: var(--white);
+        background: var(--cream);
         border: 1px solid var(--border);
         border-radius: 999px;
         padding: 12px 22px;
@@ -169,54 +338,76 @@
         font-size: 0.92rem;
         transition: 0.25s;
       }
-      .ajuda-tag i {
+      .ct-tag i {
         color: var(--gold-dark);
         font-size: 1.1rem;
       }
-      .ajuda-tag:hover {
+      .ct-tag:hover {
         border-color: var(--gold);
         box-shadow: 0 6px 18px rgba(11, 34, 53, 0.08);
         transform: translateY(-2px);
       }
-      .depoimentos-section {
-        padding: 90px 0;
-        background: var(--white);
+
+      /* ── DEPOIMENTOS ── */
+      .ct-dep-section {
+        padding: 80px 0;
+        background: var(--cream);
+        text-align: center;
       }
-      .depoimentos-grid {
+      .ct-dep-section .section-heading {
+        margin: 0 auto 36px;
+      }
+      .ct-dep-section .section-heading h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      }
+      .ct-dep-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 26px;
-        margin-top: 42px;
+        gap: 24px;
+        margin-top: 8px;
+        text-align: left;
       }
-      .depoimento-card {
-        background: var(--cream);
+      .ct-dep-card {
+        background: var(--white);
         border: 1px solid var(--border);
         border-radius: 22px;
         padding: 32px 28px;
+        transition: 0.3s;
       }
-      .depoimento-aspas {
-        font-size: 3.5rem;
+      .ct-dep-card:hover {
+        box-shadow: 0 16px 36px rgba(11, 34, 53, 0.08);
+        border-color: var(--gold);
+      }
+      .ct-dep-aspas {
+        font-size: 3.2rem;
         color: var(--gold);
         line-height: 1;
         font-family: "Cinzel", serif;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         display: block;
       }
-      .depoimento-card p {
+      .ct-dep-card p {
         color: var(--text);
-        font-size: 0.97rem;
+        font-size: 0.96rem;
         line-height: 1.75;
-        margin-bottom: 22px;
         font-style: italic;
+        margin-bottom: 24px;
       }
-      .depoimento-autor {
+      .ct-dep-divisor {
+        width: 40px;
+        height: 2px;
+        background: var(--gold);
+        margin-bottom: 18px;
+        opacity: 0.6;
+      }
+      .ct-dep-autor {
         display: flex;
         align-items: center;
         gap: 12px;
       }
-      .depoimento-avatar {
-        width: 42px;
-        height: 42px;
+      .ct-dep-avatar {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background: var(--navy);
         display: flex;
@@ -224,53 +415,153 @@
         justify-content: center;
         flex-shrink: 0;
       }
-      .depoimento-avatar i {
+      .ct-dep-avatar i {
         color: var(--gold);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
-      .depoimento-autor span {
-        color: var(--muted);
-        font-size: 0.84rem;
-        line-height: 1.4;
-      }
-      .depoimento-autor strong {
+      .ct-dep-autor strong {
         display: block;
         color: var(--navy);
-        font-size: 0.9rem;
+        font-size: 0.88rem;
       }
-      .contato-cta {
+      .ct-dep-autor span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.4;
+      }
+
+      /* ── CTA FINAL ── */
+      .ct-cta {
         padding: 80px 0;
         background: var(--navy);
+        position: relative;
+        overflow: hidden;
       }
+      .ct-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80")
+          center/cover no-repeat;
+        opacity: 0.08;
+      }
+      .ct-cta-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .ct-cta h2 {
+        font-family: "Cinzel", serif;
+        color: #fff;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      .ct-cta p {
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 560px;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .ct-cta .ct-cta-tag {
+        display: inline-block;
+        color: var(--gold);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.78rem;
+        margin-bottom: 14px;
+      }
+      .btn-cta-wpp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 0 32px;
+        border-radius: 999px;
+        background: var(--gold);
+        color: var(--navy);
+        font-weight: 800;
+        font-size: 1rem;
+        transition: 0.25s;
+        text-decoration: none;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .btn-cta-wpp:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(214, 168, 79, 0.35);
+      }
+
+      /* ── RESPONSIVO ── */
       @media (max-width: 980px) {
-        .contato-cards-grid {
+        .ct-wpp-card {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 32px 28px;
+        }
+        .ct-wpp-botoes {
+          width: 100%;
+        }
+        .btn-wpp {
+          width: 100%;
+        }
+        .ct-cards-grid {
           grid-template-columns: 1fr;
         }
-        .depoimentos-grid {
+        .ct-dep-grid {
           grid-template-columns: 1fr;
+        }
+        .ct-cta-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+        .ct-cta p {
+          margin: 0 auto;
+        }
+      }
+      @media (max-width: 640px) {
+        .ct-hero {
+          padding: 72px 0 60px;
+        }
+        .ct-wpp-section {
+          padding: 48px 0 0;
+        }
+        .ct-cards-section {
+          padding: 40px 0 60px;
         }
       }
     </style>
   </head>
+
   <body>
+    <!-- HEADER -->
     <header class="header">
       <div class="container header-content">
         <a href="../index.html" class="logo-area">
-          <img src="../img/logo.png" alt="Logo Anselmo Pedroso" />
+          <img src="../img/logo.png" alt="Logo Anselmo Pedroso Imobiliária" />
         </a>
+
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-          &#9776;
+          ☰
         </button>
+
         <nav class="nav" id="navMenu">
-          <a href="imoveis.html"><i class="ri-home-4-line"></i> Imoveis</a>
+          <a href="imoveis.html"><i class="ri-home-4-line"></i> Imóveis</a>
           <a href="servicos.html"
-            ><i class="ri-briefcase-4-line"></i> Servicos</a
+            ><i class="ri-briefcase-4-line"></i> Serviços</a
           >
           <a href="sobre.html"><i class="ri-user-3-line"></i> Sobre</a>
-          <a href="contato.html" style="background: var(--navy); color: #fff"
-            ><i class="ri-phone-line"></i> Contato</a
-          >
+          <a href="contato.html" style="background: var(--navy); color: #fff">
+            <i class="ri-phone-line"></i> Contato
+          </a>
         </nav>
+
         <a
           class="btn-header"
           href="https://wa.me/5551995483061"
@@ -280,213 +571,283 @@
         </a>
       </div>
     </header>
+
     <main>
-      <section class="contato-hero">
+      <!-- HERO -->
+      <section class="ct-hero">
         <div class="container">
-          <span class="tagline">Fale conosco</span>
-          <h1>Entre em contato com a Anselmo Pedroso Imobiliaria</h1>
-          <p>
-            Fale com um atendimento experiente para comprar, vender, alugar ou
-            avaliar seu imovel com mais seguranca.
+          <span class="tagline">Entre em contato</span>
+          <h1>Fale diretamente com a<br />Anselmo Pedroso Imobiliária</h1>
+          <div class="ct-divisor">
+            <span></span>
+            <i class="ri-leaf-line"></i>
+            <span></span>
+          </div>
+          <p style="margin-top: 20px">
+            Atendimento consultivo para compra, venda, locação,<br />
+            avaliação e orientação imobiliária no Rio Grande do Sul.
           </p>
         </div>
       </section>
 
-      <section class="contato-cards-section">
+      <!-- WHATSAPP DESTAQUE -->
+      <section class="ct-wpp-section">
         <div class="container">
-          <div class="section-heading">
-            <span>Canais de atendimento</span>
-            <h2>Como entrar em contato</h2>
-            <p>Escolha o canal mais conveniente para voce.</p>
-          </div>
-          <div class="contato-cards-grid">
-            <div class="contato-card">
-              <div class="contato-card-icon">
-                <i class="ri-whatsapp-line"></i>
-              </div>
+          <div class="ct-wpp-card">
+            <div class="ct-wpp-icone">
+              <i class="ri-whatsapp-line"></i>
+            </div>
+
+            <div class="ct-wpp-texto">
               <h3>WhatsApp</h3>
               <p>
-                Atendimento rapido para duvidas, imoveis disponiveis, visitas e
-                agendamentos.
+                Atendimento rápido para dúvidas,<br />
+                imóveis disponíveis, visitas e agendamentos.
               </p>
-              <div class="contato-card-botoes">
-                <a
-                  href="https://wa.me/5551995483061"
-                  target="_blank"
-                  class="btn-wpp"
-                >
-                  <i class="ri-whatsapp-line"></i> Chamar no WhatsApp 1 - 51
-                  99548-3061
-                </a>
-                <a
-                  href="https://wa.me/5551992905834"
-                  target="_blank"
-                  class="btn-wpp"
-                >
-                  <i class="ri-whatsapp-line"></i> Chamar no WhatsApp 2 - 51
-                  99290-5834
-                </a>
-              </div>
             </div>
-            <div class="contato-card">
-              <div class="contato-card-icon"><i class="ri-mail-line"></i></div>
-              <h3>E-mail</h3>
+
+            <div class="ct-wpp-botoes">
+              <a
+                href="https://wa.me/5551995483061"
+                target="_blank"
+                class="btn-wpp"
+              >
+                <i class="ri-whatsapp-line"></i>
+                WhatsApp 1: 51 99548-3061
+              </a>
+              <a
+                href="https://wa.me/5551992905834"
+                target="_blank"
+                class="btn-wpp"
+              >
+                <i class="ri-whatsapp-line"></i>
+                WhatsApp 2: 51 99290-5834
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARDS: E-MAIL, REDES, ÁREA -->
+      <section class="ct-cards-section">
+        <div class="container">
+          <div class="ct-cards-grid">
+            <!-- E-mail -->
+            <div class="ct-card">
+              <div class="ct-card-topo">
+                <div class="ct-card-icon">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <h3>E-mail</h3>
+              </div>
               <p>
-                Envie sua solicitacao, proposta ou documentacao para analise.
+                Envie sua solicitação, proposta ou documentação para análise.
               </p>
-              <div class="contato-card-botoes">
+              <div class="ct-card-botoes">
                 <a href="mailto:anselmopedroso@remax.com.br" class="btn-mail">
-                  <i class="ri-mail-send-line"></i> Enviar e-mail
+                  <i class="ri-mail-send-line"></i>
+                  anselmopedroso@remax.com.br
                 </a>
               </div>
             </div>
-            <div class="contato-card">
-              <div class="contato-card-icon"><i class="ri-share-line"></i></div>
-              <h3>Redes Sociais</h3>
+
+            <!-- Redes sociais -->
+            <div class="ct-card">
+              <div class="ct-card-topo">
+                <div class="ct-card-icon">
+                  <i class="ri-share-line"></i>
+                </div>
+                <h3>Redes sociais</h3>
+              </div>
               <p>
-                Acompanhe imoveis, novidades e conteudos da Anselmo Pedroso
-                Imobiliaria.
+                Acompanhe imóveis, novidades e conteúdos da Anselmo Pedroso
+                Imobiliária.
               </p>
-              <div class="contato-card-botoes">
+              <div class="redes-icones">
                 <a
                   href="https://www.instagram.com/anselmopedroso2024?igsh=NDJ6cHdrbjloOG1j"
                   target="_blank"
-                  class="btn-rede"
+                  class="rede-link"
                 >
-                  <i class="ri-instagram-line"></i> Instagram
+                  <span class="rede-ico instagram">
+                    <i class="ri-instagram-line"></i>
+                  </span>
+                  Instagram
                 </a>
                 <a
                   href="https://www.facebook.com/share/18xEALydK5/?mibextid=wwXIfr"
                   target="_blank"
-                  class="btn-rede"
+                  class="rede-link"
                 >
-                  <i class="ri-facebook-line"></i> Facebook
+                  <span class="rede-ico facebook">
+                    <i class="ri-facebook-fill"></i>
+                  </span>
+                  Facebook
                 </a>
                 <a
                   href="https://www.facebook.com/share/1TJHdD5BFE/?mibextid=wwXIfr"
                   target="_blank"
-                  class="btn-rede"
+                  class="rede-link"
                 >
-                  <i class="ri-facebook-box-line"></i> Pagina do Facebook
+                  <span class="rede-ico facebook-page">
+                    <i class="ri-global-line"></i>
+                  </span>
+                  Página do<br />Facebook
                 </a>
               </div>
             </div>
-            <div class="contato-card">
-              <div class="contato-card-icon">
-                <i class="ri-map-pin-2-line"></i>
+
+            <!-- Área de atendimento -->
+            <div class="ct-card">
+              <div class="ct-card-topo">
+                <div class="ct-card-icon">
+                  <i class="ri-map-pin-2-line"></i>
+                </div>
+                <h3>Área de atendimento</h3>
               </div>
-              <h3>Area de Atendimento</h3>
               <p>
-                Atendimento voltado ao mercado imobiliario do Rio Grande do Sul,
-                com foco em compra, venda, locacao, avaliacao e consultoria.
+                Atendimento voltado ao mercado imobiliário do Rio Grande do Sul,
+                com foco em compra, venda, locação, avaliação e consultoria.
               </p>
-              <div class="contato-card-botoes">
-                <a
-                  href="https://wa.me/5551995483061"
-                  target="_blank"
-                  class="btn-mail"
+
+              <!-- Mapa RS simplificado em SVG -->
+              <div class="ct-mapa">
+                <svg
+                  viewBox="0 0 200 220"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
                 >
-                  <i class="ri-whatsapp-line"></i> Solicitar atendimento
-                </a>
+                  <path
+                    d="M60 10 L80 8 L110 15 L140 20 L165 35 L180 55 L185 80
+                       L178 105 L170 125 L160 145 L148 165 L130 185 L110 200
+                       L90 210 L70 205 L50 195 L35 178 L25 158 L20 135
+                       L22 110 L30 88 L38 65 L48 40 Z"
+                    fill="var(--gold)"
+                    opacity="0.18"
+                    stroke="var(--gold-dark)"
+                    stroke-width="2"
+                  />
+                  <!-- ponto Porto Alegre -->
+                  <circle
+                    cx="95"
+                    cy="165"
+                    r="6"
+                    fill="var(--gold-dark)"
+                    opacity="0.9"
+                  />
+                  <circle
+                    cx="95"
+                    cy="165"
+                    r="11"
+                    fill="var(--gold-dark)"
+                    opacity="0.2"
+                  />
+                </svg>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="ajuda-section">
+      <!-- COMO PODEMOS AJUDAR -->
+      <section class="ct-ajuda-section">
         <div class="container">
-          <div class="section-heading">
-            <span>Areas de atuacao</span>
+          <div
+            class="section-heading"
+            style="text-align: center; margin: 0 auto 12px"
+          >
             <h2>Como podemos ajudar?</h2>
-            <p>
-              Atendimento especializado para diversas necessidades do mercado
-              imobiliario.
-            </p>
           </div>
-          <div class="ajuda-tags">
-            <div class="ajuda-tag">
-              <i class="ri-home-smile-line"></i> Compra de imovel
+          <div class="ct-divisor-dourado">
+            <span></span>
+            <i class="ri-leaf-line"></i>
+            <span></span>
+          </div>
+          <div class="ct-tags">
+            <div class="ct-tag">
+              <i class="ri-home-smile-line"></i> Compra de imóvel
             </div>
-            <div class="ajuda-tag">
-              <i class="ri-price-tag-3-line"></i> Venda de imovel
+            <div class="ct-tag">
+              <i class="ri-price-tag-3-line"></i> Venda de imóvel
             </div>
-            <div class="ajuda-tag"><i class="ri-key-2-line"></i> Locacao</div>
-            <div class="ajuda-tag">
-              <i class="ri-bar-chart-box-line"></i> Avaliacao imobiliaria
+            <div class="ct-tag"><i class="ri-key-2-line"></i> Locação</div>
+            <div class="ct-tag">
+              <i class="ri-bar-chart-box-line"></i> Avaliação imobiliária
             </div>
-            <div class="ajuda-tag">
-              <i class="ri-lightbulb-line"></i> Consultoria imobiliaria
+            <div class="ct-tag">
+              <i class="ri-building-4-line"></i> Consultoria imobiliária
             </div>
-            <div class="ajuda-tag">
-              <i class="ri-landscape-line"></i> Terrenos
+            <div class="ct-tag"><i class="ri-landscape-line"></i> Terrenos</div>
+            <div class="ct-tag">
+              <i class="ri-home-4-line"></i> Imóveis residenciais
             </div>
-            <div class="ajuda-tag">
-              <i class="ri-building-line"></i> Imoveis residenciais
-            </div>
-            <div class="ajuda-tag">
-              <i class="ri-store-2-line"></i> Imoveis comerciais
+            <div class="ct-tag">
+              <i class="ri-store-2-line"></i> Imóveis comerciais
             </div>
           </div>
         </div>
       </section>
 
-      <section class="depoimentos-section">
+      <!-- DEPOIMENTOS -->
+      <section class="ct-dep-section">
         <div class="container">
-          <div class="section-heading">
-            <span>Clientes</span>
+          <div
+            class="section-heading"
+            style="text-align: center; margin: 0 auto 12px"
+          >
             <h2>O que os clientes dizem</h2>
-            <p>
-              Experiencias reais de quem foi atendido pela Anselmo Pedroso
-              Imobiliaria.
-            </p>
           </div>
-          <div class="depoimentos-grid">
-            <div class="depoimento-card">
-              <span class="depoimento-aspas">"</span>
+          <div class="ct-divisor-dourado">
+            <span></span>
+            <i class="ri-leaf-line"></i>
+            <span></span>
+          </div>
+
+          <div class="ct-dep-grid">
+            <div class="ct-dep-card">
+              <span class="ct-dep-aspas">"</span>
               <p>
-                Fui muito bem atendido, com clareza nas informacoes e seguranca
-                durante toda a negociacao.
+                Fui muito bem atendido, com clareza nas informações e segurança
+                durante toda a negociação.
               </p>
-              <div class="depoimento-autor">
-                <div class="depoimento-avatar">
-                  <i class="ri-user-line"></i>
-                </div>
+              <div class="ct-dep-divisor"></div>
+              <div class="ct-dep-autor">
+                <div class="ct-dep-avatar"><i class="ri-user-line"></i></div>
                 <div>
                   <strong>Cliente</strong>
-                  <span>Atendido pela Anselmo Pedroso Imobiliaria</span>
+                  <span>Atendido pela Anselmo Pedroso Imobiliária</span>
                 </div>
               </div>
             </div>
-            <div class="depoimento-card">
-              <span class="depoimento-aspas">"</span>
+
+            <div class="ct-dep-card">
+              <span class="ct-dep-aspas">"</span>
               <p>
-                Atendimento serio, profissional e transparente. Recomendo para
-                quem busca comprar ou vender com seguranca.
+                Atendimento sério, profissional e transparente. Recomendo para
+                quem busca comprar ou vender com segurança.
               </p>
-              <div class="depoimento-autor">
-                <div class="depoimento-avatar">
-                  <i class="ri-user-line"></i>
-                </div>
+              <div class="ct-dep-divisor"></div>
+              <div class="ct-dep-autor">
+                <div class="ct-dep-avatar"><i class="ri-user-line"></i></div>
                 <div>
                   <strong>Cliente</strong>
-                  <span>Atendido pela Anselmo Pedroso Imobiliaria</span>
+                  <span>Atendido pela Anselmo Pedroso Imobiliária</span>
                 </div>
               </div>
             </div>
-            <div class="depoimento-card">
-              <span class="depoimento-aspas">"</span>
+
+            <div class="ct-dep-card">
+              <span class="ct-dep-aspas">"</span>
               <p>
-                Recebi uma orientacao clara e objetiva, o que ajudou muito na
-                tomada de decisao sobre o imovel.
+                Recebi uma orientação clara e objetiva, o que ajudou muito na
+                tomada de decisão sobre o imóvel.
               </p>
-              <div class="depoimento-autor">
-                <div class="depoimento-avatar">
-                  <i class="ri-user-line"></i>
-                </div>
+              <div class="ct-dep-divisor"></div>
+              <div class="ct-dep-autor">
+                <div class="ct-dep-avatar"><i class="ri-user-line"></i></div>
                 <div>
                   <strong>Cliente</strong>
-                  <span>Atendido pela Anselmo Pedroso Imobiliaria</span>
+                  <span>Atendido pela Anselmo Pedroso Imobiliária</span>
                 </div>
               </div>
             </div>
@@ -494,37 +855,45 @@
         </div>
       </section>
 
-      <section class="contato-cta">
-        <div class="container cta-box">
+      <!-- CTA FINAL -->
+      <section class="ct-cta">
+        <div class="container ct-cta-inner">
           <div>
-            <span>Vamos conversar?</span>
-            <h2>Vamos conversar sobre o seu imovel?</h2>
+            <span class="ct-cta-tag">Vamos conversar?</span>
+            <h2>Vamos conversar sobre<br />o seu imóvel?</h2>
             <p>
               Seja para comprar, vender, alugar ou avaliar, conte com uma
-              orientacao experiente para tomar a melhor decisao.
+              orientação experiente para tomar a melhor decisão.
             </p>
           </div>
           <a
             href="https://wa.me/5551995483061"
             target="_blank"
-            class="btn-light"
+            class="btn-cta-wpp"
           >
-            Falar com a imobiliaria
+            <i class="ri-whatsapp-line"></i>
+            Falar com a imobiliária
           </a>
         </div>
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container footer-content">
-        <img src="../img/logo.png" alt="Logo Anselmo Pedroso" />
-        <p>2026 Anselmo Pedroso Imobiliaria. Todos os direitos reservados.</p>
+        <img src="../img/logo.png" alt="Logo Anselmo Pedroso Imobiliária" />
+        <p>© 2026 Anselmo Pedroso Imobiliária. Todos os direitos reservados.</p>
       </div>
     </footer>
 
-    <a href="https://wa.me/5551995483061" class="whatsapp-float" target="_blank"
-      >WhatsApp</a
+    <a
+      href="https://wa.me/5551995483061"
+      class="whatsapp-float"
+      target="_blank"
+      aria-label="Falar pelo WhatsApp"
     >
+      WhatsApp
+    </a>
 
     <script>
       const menuToggle = document.getElementById("menuToggle");
